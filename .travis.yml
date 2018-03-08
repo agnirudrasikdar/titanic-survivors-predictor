@@ -2,7 +2,17 @@ language: python
 python:
   - "3.5"
   - "3.6"
-  
+# environment  
+env: PYTHON=3.6.4
 # command to install dependencies
+before_install:
+  - python -m pip install -U pip
+  - python -m easy_install -U setuptools
 install:
-  - pip install -r requirements.txt
+  - pip install -U pandas
+  - pip install -U numpy
+  - pip install -U scikit-learn
+  - python -m pip install flake8
+
+script:  
+  - flake8 python
